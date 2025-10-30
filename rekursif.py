@@ -61,8 +61,8 @@ for i in range(1, num + 1):
 print("Faktorial dari %d adalah %d"%(num, hasil))
 print('-'*20)
 
-# Fibonacci secara rekursif
-def fibonacci(n):
+# Fibonacci secara rekursif - menampilkan deret Fibonacci
+def fibonacci_rekursif(n):
     # Kondisi berhenti (base case) - Fibonacci dari 0 adalah 0, dan dari 1 adalah 1
     if n <= 0:
         return 0
@@ -70,23 +70,35 @@ def fibonacci(n):
         return 1
     # Jika n lebih besar dari 1, jumlahkan dua nilai Fibonacci sebelumnya
     else:
-        return fibonacci(n-1) + fibonacci(n-2)  
-# Input posisi Fibonacci dari user
-pos = int(input("Masukan Posisi Fibonacci: "))
-# Panggil fungsi fibonacci dan tampilkan hasilnya
-print("Fibonacci pada posisi %d adalah %d"%(pos, fibonacci(pos)))
+        return fibonacci_rekursif(n-1) + fibonacci_rekursif(n-2)  
+
+# Input jumlah bilangan Fibonacci dari user
+n = int(input("Masukan Berapa Banyak Bilangan Fibonacci: "))
+# Inisialisasi list untuk menyimpan deret Fibonacci
+deret_fib_rekursif = []
+# Loop untuk menghitung setiap bilangan Fibonacci
+for i in range(n):
+    # Tambahkan hasil fibonacci ke dalam list
+    deret_fib_rekursif.append(fibonacci_rekursif(i))
+# Tampilkan deret Fibonacci dengan format yang rapi
+print("Deret Fibonacci (Rekursif):", deret_fib_rekursif)
 print('-'*20)
 
-# Fibonacci tanpa rekursif
-# Input posisi Fibonacci dari user
-pos = int(input("Masukan Posisi Fibonacci: "))
+# Fibonacci tanpa rekursif - menampilkan deret Fibonacci
+# Input jumlah bilangan Fibonacci dari user
+n = int(input("Masukan Berapa Banyak Bilangan Fibonacci: "))
+# Inisialisasi list untuk menyimpan deret Fibonacci
+deret_fib_loop = []
 # Inisialisasi dua nilai awal Fibonacci
 a, b = 0, 1
-# Loop untuk menghitung Fibonacci hingga posisi yang diinginkan
-for _ in range(pos):
+# Loop untuk menghitung Fibonacci sebanyak n kali
+for i in range(n):
+    # Tambahkan nilai a (Fibonacci saat ini) ke dalam list
+    deret_fib_loop.append(a)
+    # Hitung nilai Fibonacci berikutnya dengan menukar nilai a dan b
     a, b = b, a + b
-# Tampilkan hasil akhir Fibonacci dengan format string
-print("Fibonacci pada posisi %d adalah %d"%(pos, a))
+# Tampilkan deret Fibonacci dengan format yang rapi
+print("Deret Fibonacci (Loop):", deret_fib_loop)
 print('-'*20)
 
 #menara hanoi secara rekursif
